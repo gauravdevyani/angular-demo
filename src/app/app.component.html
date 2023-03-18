@@ -1,0 +1,287 @@
+<div class="container mt-5">
+  <div>
+    <h4>Partner Management</h4>
+    <p>Warehouses</p>
+  </div>
+
+  <div class="row">
+    <div class="col-md-10">
+      <div class="row">
+        <div class="col-md-1 mt-1">Download:</div>
+        <div class="col-md-2">
+          <select class="form-control" aria-label="">
+            <option value="1">All</option>
+            <option value="2">Active</option>
+            <option value="3">Inactive</option>
+          </select>
+        </div>
+        <div class="col-md-8">
+          <img class="excelicon" src="https://cdn-icons-png.flaticon.com/512/888/888850.png">
+          <img class="pdficon"
+            src="https://e7.pngegg.com/pngimages/491/951/png-clipart-red-adobe-pdf-logo-pdf-computer-icons-adobe-acrobat-encapsulated-postscript-pdf-miscellaneous-angle-thumbnail.png">
+          <img src="https://cdn-icons-png.flaticon.com/512/180/180855.png" class="csvicon">
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-md-2">
+      <div class="row">
+        <div class="col-md-2 filter-icon-div">
+          <img src="https://icones.pro/wp-content/uploads/2021/05/icone-de-filtre-grise.png" class="filtericon">
+        </div>
+        <div class="col-md-10">
+          <input class="form-control" placeholder="Search" type="search">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div>
+    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="end">
+      <mat-tab label="View Partner">
+        <div class="mt-5">
+          <table mat-table [dataSource]="dataSource" class="table table-striped mat-elevation-z8 shadow">
+
+            <ng-container matColumnDef="storeName">
+              <th mat-header-cell *matHeaderCellDef>Store Name</th>
+              <td mat-cell *matCellDef="let studentData"> {{studentData.storeName}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="ownerName">
+              <th mat-header-cell *matHeaderCellDef> Onwer Name </th>
+              <td mat-cell *matCellDef="let studentData"> {{studentData.ownerName}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="address">
+              <th mat-header-cell *matHeaderCellDef> Address </th>
+              <td mat-cell *matCellDef="let studentData"> {{studentData.address}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="updatedAt">
+              <th mat-header-cell *matHeaderCellDef> Last Updated </th>
+              <td mat-cell *matCellDef="let studentData"> {{studentData.updatedAt}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef> Action </th>
+              <td mat-cell *matCellDef="let studentData">
+                <img class="toggle-btn" src="https://cdn-icons-png.flaticon.com/512/5720/5720464.png">
+                <!-- <img class="edit-btn" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqR9JhzRid7fq62MU_CjKZvc5vwzsgFiB0kQ&usqp=CAU"> -->
+                <button style="border: none;" (click)="openDialog()"><img
+                    style="height: 18px; width: 16px; margin-left: 10px !important;"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqR9JhzRid7fq62MU_CjKZvc5vwzsgFiB0kQ&usqp=CAU"></button>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </div>
+      </mat-tab>
+
+
+      <mat-tab label="Register Partner">
+        <div class="container">
+          <br>
+          <h4>Personal Information</h4>
+          <div class="col-sm-12 custom-margin">
+            <div class="d-flex">
+              <div class="col-sm-5">
+                <label for="uname">First Name</label><br>
+                <input type="text" class="form-control mt-1 input-left" placeholder="Eg. john">
+              </div>
+
+              <br>
+              <div class="col-sm-4">
+                <label for="uname">Last Name</label><br>
+                <input type="text" class="form-control mt-1 right-input" placeholder="Eg. Doe">
+              </div>
+
+            </div>
+            <br>
+
+            <div class="d-flex">
+              <div class="col-sm-5">
+                <label for="uname">Mobile Number</label><br>
+                <input type="text" class="form-control mt-1 input-left" placeholder="Eg. 9988776655">
+              </div>
+              <br>
+              <div class="col-sm-4 ">
+                <label for="uname">Email Id</label><br>
+                <input type="text" class="form-control mt-1 right-input" placeholder="Eg. jd2@gmailcom">
+
+              </div>
+            </div>
+
+            <div class="col-sm-2"></div>
+          </div>
+          <br>
+
+
+          <h4>Business Information</h4>
+          <div class="col-sm-12 custom-margin">
+            <div class="d-flex">
+              <div class="col-sm-5">
+                <label for="uname">Store Name</label><br>
+                <input type="text" class="form-control mt-1 input-left" placeholder="Eg. Vijay lakshmi trade ">
+              </div>
+              <br>
+              <div class="col-sm-4">
+                <label for="uname">Register Store Name</label><br>
+                <input type="text" class="form-control mt-1 right-input" placeholder="Eg. Vijay Tarade">
+              </div>
+            </div>
+            <br>
+            <div class="d-flex">
+              <div class="col-sm-5">
+                <label for="uname">GST Number</label><br>
+                <input type="text" class="form-control mt-1 input-left" placeholder="Recipient's username">
+              </div>
+              <br>
+              <div class="col-sm-4 ">
+                <label for="uname">Address</label><br>
+                <input type="text" class="form-control mt-1 right-input" placeholder="Recipient's username">
+              </div>
+            </div>
+            <br>
+            <div class="d-flex">
+              <div class="col-sm-5">
+                <label for="uname">Area</label><br>
+                <select class="form-control mt-1 input-left" aria-label="">
+                  <option value="1">Select Area</option>
+                  <option value="2">Active</option>
+                  <option value="3">Inactive</option>
+                </select>
+              </div>
+              <br>
+              <div class="col-sm-4 ">
+                <label for="uname">City</label><br>
+                <select class="form-control mt-1 right-input" aria-label="">
+                  <option value="1">Select City</option>
+                  <option value="2">Active</option>
+                  <option value="3">Inactive</option>
+                </select>
+              </div>
+            </div>
+            <br>
+            <div class="d-flex">
+              <div class="col-sm-5">
+                <label for="uname">State</label><br>
+                <select class="form-control mt-1 input-left" aria-label="">
+                  <option value="1">Select state</option>
+                  <option value="2">Active</option>
+                  <option value="3">Inactive</option>
+                </select>
+              </div>
+              <br>
+              <div class="col-sm-4 ">
+                <label for="uname">Pincode</label><br>
+                <select class="form-control mt-1 right-input" aria-label="">
+                  <option value="1">Select Pincode</option>
+                  <option value="2">Active</option>
+                  <option value="3">Inactive</option>
+                </select>
+              </div>
+            </div>
+            <br>
+            <div class="col-sm-9">
+              <label for="uname">Location</label><br>
+              <input type="text" class="form-control mt-1 location-input" placeholder="Enter Location"
+                aria-label="Recipient's username" aria-describedby="basic-addon2">
+            </div>
+            <br>
+            <div class="col-sm-9">
+              <input type="text" class="form-control mt-1 location-input-second">
+            </div>
+            <div class="d-flex mt-4">
+              <div class="">
+                <h5 for="uname" class="">Near by Pincode</h5>
+              </div>
+              <div class="col-sm-3 text-align-center">
+                <div class="mt-1">
+                  <input type="checkbox" class="form-check-input " id="exampleCheck1">&nbsp;&nbsp;&nbsp;
+                  <label>5100018</label>
+
+                </div>
+                <div class="mt-1">
+                  <input type="checkbox" class="form-check-input " id="exampleCheck1">&nbsp;&nbsp;&nbsp;
+                  <label>5100018</label>
+                </div>
+                <div class="mt-1">
+                  <input type="checkbox" class="form-check-input " id="exampleCheck1">&nbsp;&nbsp;&nbsp;
+                  <label>5100018</label>
+                </div>
+                <div class="mt-1">
+                  <input type="checkbox" class="form-check-input " id="exampleCheck1">&nbsp;&nbsp;&nbsp;
+                  <label>5100018</label>
+                </div>
+              </div>
+            </div>
+            <br>
+
+
+            <h4>Permission</h4>
+            <div class="col-sm-12 custom-margin">
+              <div class="d-flex mt-6">
+                <div class=" col-sm-1">
+                  <label for="uname">Category</label><br>
+                </div>
+                <div class="col-sm-4">
+                  <div class="d-flex mt-1 justify-content-between ">
+                    <input type="checkbox" class="form-check-input " id="exampleCheck1">&nbsp;&nbsp;&nbsp;
+                    <label>Rice</label>&nbsp;&nbsp;&nbsp;
+                    <h5 class="text-primary">View-Sub-Categories</h5>
+                  </div>
+
+
+                  <div class="d-flex mt-1 justify-content-between ">
+                    <input type="checkbox" class="form-check-input " id="exampleCheck1">&nbsp;&nbsp;&nbsp;
+                    <label>Edible Oil & Ghee</label>&nbsp;&nbsp;&nbsp;
+                    <h5 class="text-primary">View-Sub-Categories</h5>
+                  </div>
+
+
+                  <div class="d-flex mt-1 justify-content-between  ">
+                    <input type="checkbox" class="form-check-input " id="exampleCheck1">&nbsp;&nbsp;&nbsp;
+                    <label>Pulses and Grians</label>&nbsp;&nbsp;&nbsp;
+                    <h5 class="text-primary">View-Sub-Categories</h5>
+                  </div>
+
+
+                  <div class="d-flex mt-1 justify-content-between  ">
+                    <input type="checkbox" class="form-check-input " id="exampleCheck1">&nbsp;&nbsp;&nbsp;
+                    <label>Flours and Maida</label>&nbsp;&nbsp;&nbsp;
+                    <h5 class="text-primary">View-Sub-Categories</h5>
+                  </div>
+
+
+                  <div class="d-flex mt-1 justify-content-between ">
+                    <input type="checkbox" class="form-check-input " id="exampleCheck1">&nbsp;&nbsp;&nbsp;
+                    <label>Spices</label>&nbsp;&nbsp;&nbsp;
+                    <h5 class="text-primary">View-Sub-Categories</h5>
+                  </div>
+
+
+                  <div class="d-flex mt-1 justify-content-between  ">
+                    <input type="checkbox" class="form-check-input " id="exampleCheck1">&nbsp;&nbsp;&nbsp;
+                    <label>Dry Fruits</label>&nbsp;&nbsp;&nbsp;
+                    <h5 class="text-primary">View-Sub-Categories</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+          <br>
+          <div class="col-sm-4 text-center">
+            <button type="button" class="btn btn-secondary">Cancel</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="button" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </mat-tab>
+    </mat-tab-group>    
+  </div>
+</div>

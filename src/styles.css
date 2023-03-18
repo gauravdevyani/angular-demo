@@ -1,0 +1,62 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+thead{
+    background-color: rgb(182, 223, 223) !important;
+    border: aliceblue;
+}
+tr.mat-mdc-header-row.mdc-data-table__header-row.cdk-header-row{
+    vertical-align: middle;
+}
+tbody.mdc-data-table__content {
+    border: cornsilk;
+}
+.mdc-tab--active .mdc-tab__text-label, .mdc-tab--active .mdc-tab__icon {
+    color: rgb(255, 111, 0);
+}
+.excelicon{
+    height: 28px; width: 30px;
+}
+.pdficon{
+    height: 28px; width: 30px; margin-left: 5px
+}
+.csvicon{
+    height: 24px; width: 30px; margin-left: 5px
+}
+.filter-icon-div{
+    text-align: end;
+        margin-top: 5px;
+}
+.filtericon{
+    height: 31px; width: 27px;
+}
+.shadow{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.toggle-btn{
+    height: 35px; width: 26px;
+}
+.edit-btn{
+    height: 18px; width: 16px; margin-left: 10px !important;
+}
+.input-left{
+    width: 80%; height: 35px; margin-left: 12px;
+}
+.right-input{
+    width: 95%; height: 35px; margin-left: 12px;
+}
+.location-input{
+    margin-left: 12px;
+}
+.location-input-second{
+    height: 90px; background: skyblue;margin-left: 12px;
+}
+.text-align-center{
+    text-align: center;
+}
+.custom-margin{
+    margin-left: 2%;
+}
+.mdc-dialog__container {
+    margin-left: 20%;
+}
